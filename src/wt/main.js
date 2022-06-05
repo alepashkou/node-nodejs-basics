@@ -11,7 +11,7 @@ export const performCalculations = async () => {
   for (let i = 0; i < threads; i++) {
     const promise = new Promise((resolve) => {
       const worker = new Worker(path.join(__dirname, 'worker.js'), {
-        workerData: 10 + 1 + i,
+        workerData: 10 + i,
       });
       worker.on('message', resolve);
       worker.on('error', () =>

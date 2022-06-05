@@ -10,7 +10,8 @@ export const spawnChildProcess = async () => {
     process.argv
   );
   childScript.on('message', (data) => {
-    console.log('(Main) Messege from child:' + data);
+    console.log('(Main) Received from child:' + data.trim());
+    process.exit();
   });
 };
 spawnChildProcess();

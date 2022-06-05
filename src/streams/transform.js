@@ -1,7 +1,11 @@
 import { Transform } from 'stream';
 const transformStream = new Transform({
   transform(chunk, encoding, callback) {
-    callback(null, chunk.toString().toUpperCase());
+    callback(
+      null,
+      chunk.toString().split('').reverse().join('').trim() + '\r\n'
+    );
+    process.exit();
   },
 });
 
